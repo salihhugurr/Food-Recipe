@@ -25,14 +25,20 @@ const categoriesData = [
   },
   {
     id: '5',
-    image: require('../images/salad-icon.png'),
-    title: 'Salatalar',
+    image: require('../images/broccoli-icon.png'),
+    title: 'Sebze',
     selected: true,
   },
   {
     id: '6',
+    image: require('../images/salad-icon.png'),
+    title: 'Salata',
+    selected: true,
+  },
+  {
+    id: '7',
     image: require('../images/dessert-icon.png'),
-    title: 'Tatlılar',
+    title: 'Tatlı',
     selected: true,
   }
 ];

@@ -14,6 +14,7 @@ import MyBackButton from "./MyBackButton";
 import Home from "./Home";
 import Main from "./Main";
 import categoriesData from "../assets/data/categoriesData";
+import CategorySearch from "./CategorySearch";
 
 
 export default class DrawerMenu extends Component {
@@ -72,12 +73,21 @@ export default class DrawerMenu extends Component {
 
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.categoryWrapper}>
+            <TouchableOpacity style={styles.categoryWrapper}
+            onPress={() => this.props.navigation.navigate('CategorySearch')}
+            >
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Et Yemekleri</Text>
                 <Image source={require('../assets/images/beefDrawer-icon.png')} style={styles.categoryImages}  />
               </View>
 
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.categoryWrapper}>
+              <View style={{flexDirection:'row',marginTop:'2%'}}>
+                <Text style={styles.categoryText}>Sebze Yemekleri</Text>
+                <Image source={require('../assets/images/broccoli-icon.png')} style={styles.categoryImages}  />
+              </View>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.categoryWrapper}>

@@ -6,7 +6,7 @@ import {createDrawerNavigator} from "react-navigation-drawer";
 import DrawerMenu from "./components/DrawerMenu";
 import Main from "./components/Main";
 import Home from "./components/Home";
-
+import CategorySearch from "./components/CategorySearch";
 
 
 const HomeNavigator= createStackNavigator({
@@ -17,6 +17,7 @@ const HomeNavigator= createStackNavigator({
 });
 const AppNavigator= createStackNavigator({
   Home:Home,
+  CategorySearch:CategorySearch,
 
 
 
