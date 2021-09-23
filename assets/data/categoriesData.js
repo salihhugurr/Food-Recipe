@@ -20,7 +20,7 @@ const categoriesData = [
   {
     id: '4',
     image: require('../images/corba-icon.png'),
-    title: 'Çorbalar',
+    title: 'Çorba',
     selected: true,
   },
   {

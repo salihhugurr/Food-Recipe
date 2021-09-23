@@ -53,7 +53,9 @@ export default class DrawerMenu extends Component {
             </TouchableOpacity>
 
 
-              <TouchableOpacity style={styles.categoryWrapper}>
+              <TouchableOpacity style={styles.categoryWrapper}
+              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Balık"})}
+              >
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Balık Yemekleri</Text>
                 <Image source={require('../assets/images/fishDrawer-icon.png')} style={styles.categoryImages}  />
@@ -65,7 +67,9 @@ export default class DrawerMenu extends Component {
 
 
 
-            <TouchableOpacity style={styles.categoryWrapper}>
+            <TouchableOpacity style={styles.categoryWrapper}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Tavuk"})}
+            >
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Tavuk Yemekleri</Text>
                 <Image source={require('../assets/images/chickenDrawer-icon.png')} style={styles.categoryImages}  />
@@ -74,7 +78,7 @@ export default class DrawerMenu extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.categoryWrapper}
-            onPress={() => this.props.navigation.navigate('CategorySearch')}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Et"})}
             >
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Et Yemekleri</Text>
@@ -83,14 +87,18 @@ export default class DrawerMenu extends Component {
 
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.categoryWrapper}>
+            <TouchableOpacity style={styles.categoryWrapper}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Sebze"})}
+            >
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Sebze Yemekleri</Text>
                 <Image source={require('../assets/images/broccoli-icon.png')} style={styles.categoryImages}  />
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.categoryWrapper}>
+            <TouchableOpacity style={styles.categoryWrapper}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Çorba"})}
+            >
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Çorbalar</Text>
                 <Image source={require('../assets/images/corba-icon.png')} style={styles.categoryImages}  />
@@ -98,7 +106,9 @@ export default class DrawerMenu extends Component {
 
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.categoryWrapper}>
+            <TouchableOpacity style={styles.categoryWrapper}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Salata"})}
+            >
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Salatalar</Text>
                 <Image source={require('../assets/images/salad-icon.png')} style={styles.categoryImages}  />
@@ -106,7 +116,9 @@ export default class DrawerMenu extends Component {
 
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.categoryWrapper}>
+            <TouchableOpacity style={styles.categoryWrapper}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Tatlı"})}
+            >
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Tatlılar</Text>
                 <Image source={require('../assets/images/dessert-icon.png')} style={styles.categoryImages}  />

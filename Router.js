@@ -7,6 +7,8 @@ import DrawerMenu from "./components/DrawerMenu";
 import Main from "./components/Main";
 import Home from "./components/Home";
 import CategorySearch from "./components/CategorySearch";
+import FilterCategory from "./components/FilterCategory";
+import Details from "./components/Details";
 
 
 const HomeNavigator= createStackNavigator({
@@ -18,6 +20,8 @@ const HomeNavigator= createStackNavigator({
 const AppNavigator= createStackNavigator({
   Home:Home,
   CategorySearch:CategorySearch,
+  FilterCategory:FilterCategory,
+  Details:Details
 
 
 

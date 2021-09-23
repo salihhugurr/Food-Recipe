@@ -16,6 +16,7 @@ import categoriesData from '../assets/data/categoriesData';
 import colors from '../assets/colors/colors';
 import { carouselData } from '../assets/data/carouselData';
 import Carousel from './Carousel';
+import FilterCategory from "./FilterCategory";
 
 Feather.loadFont();
 MaterialCommunityIcons.loadFont();
@@ -24,6 +25,7 @@ class Home extends Component {
   renderCategoryItem = ({ item, index }) => {
     return (
       <TouchableOpacity
+        onPress={() => this.props.navigation.navigate('FilterCategory',{item:item.title})}
         style={[
           styles.categoryItemWrapper,
           {
@@ -84,12 +86,19 @@ class Home extends Component {
           </View>
 
           {/* Search */}
-          <View style={styles.searchWrapper}>
-            <Feather name="search" size={16} color={colors.textDark} />
-            <View style={styles.search}>
-              <TextInput style={styles.searchText} placeholder={'Search...'} />
+
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('CategorySearch')}>
+
+            <View style={styles.searchWrapper}>
+              <Feather name="search" size={16} color={colors.textDark} />
+              <View style={styles.search}>
+                <Text style={styles.searchText}> Tüm Yemeklere Gözat </Text>
+              </View>
             </View>
-          </View>
+
+          </TouchableOpacity>
+
 
           {/* Categories */}
 
@@ -158,13 +167,14 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     borderBottomColor: colors.textLight,
-    borderBottomWidth: 2,
+    borderBottomWidth: .5,
   },
   searchText: {
     fontFamily: 'Montserrat-Semibold',
-    fontSize: 14,
-    marginBottom: 5,
-    color: colors.textLight,
+    fontSize: 18,
+    marginBottom: 2,
+    color: colors.textDark,
+    padding:"1.5%"
   },
   categoriesWrapper: {
     marginTop: 30,

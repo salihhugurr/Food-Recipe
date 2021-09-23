@@ -5,10 +5,10 @@ export default class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
-
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
-          <Text>AAA</Text>
+        <TouchableOpacity style={{justifyContent:"center"}} onPress={() => this.props.navigation.navigate('Home')}>
+          <Text>Login</Text>
         </TouchableOpacity>
+
       </View>
     );
   }
@@ -17,6 +17,7 @@ export default class Main extends Component {
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    alignItems:"center"
+    alignItems:"center",
+    justifyContent:"center",
   }
 });
