@@ -44,7 +44,9 @@ export default class DrawerMenu extends Component {
 
             <Text style={styles.categoriesTitle}>Menü</Text>
 
-            <TouchableOpacity style={styles.categoryWrapper}>
+            <TouchableOpacity style={styles.categoryWrapper}
+            onPress={()=> this.props.navigation.navigate('MultipleSelect')}
+            >
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Bugün Ne Yapsam?</Text>
                 <Image source={require('../assets/images/search-icon.png')} style={styles.categoryImages}  />
@@ -122,6 +124,46 @@ export default class DrawerMenu extends Component {
               <View style={{flexDirection:'row',marginTop:'2%'}}>
                 <Text style={styles.categoryText}>Tatlılar</Text>
                 <Image source={require('../assets/images/dessert-icon.png')} style={styles.categoryImages}  />
+              </View>
+
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.categoryWrapper}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Diyet"})}
+            >
+              <View style={{flexDirection:'row',marginTop:'2%'}}>
+                <Text style={styles.categoryText}>Diyet</Text>
+                <Image source={require('../assets/images/diet-icon.png')} style={styles.categoryImages}  />
+              </View>
+
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.categoryWrapper}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Vejetaryen"})}
+            >
+              <View style={{flexDirection:'row',marginTop:'2%'}}>
+                <Text style={styles.categoryText}>Vejetaryen</Text>
+                <Image source={require('../assets/images/vegetarian-icon.png')} style={styles.categoryImages}  />
+              </View>
+
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.categoryWrapper}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Kahvaltı"})}
+            >
+              <View style={{flexDirection:'row',marginTop:'2%'}}>
+                <Text style={styles.categoryText}>Kahvaltılıklar</Text>
+                <Image source={require('../assets/images/breakfast-icon.png')} style={styles.categoryImages}  />
+              </View>
+
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.categoryWrapper}
+                              onPress={()=>this.props.navigation.navigate('FilterCategory',{item:"Börek"})}
+            >
+              <View style={{flexDirection:'row',marginTop:'2%'}}>
+                <Text style={styles.categoryText}>Börekler</Text>
+                <Image source={require('../assets/images/borek-icon.png')} style={styles.categoryImages}  />
               </View>
 
             </TouchableOpacity>

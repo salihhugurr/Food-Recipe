@@ -40,6 +40,30 @@ const categoriesData = [
     image: require('../images/dessert-icon.png'),
     title: 'Tatlı',
     selected: true,
+  },
+  {
+    id: '8',
+    image: require('../images/diet-icon.png'),
+    title: 'Diyet',
+    selected: true,
+  },
+  {
+    id: '9',
+    image: require('../images/vegetarian-icon.png'),
+    title: 'Vejetaryen',
+    selected: true,
+  },
+  {
+    id: '10',
+    image: require('../images/breakfast-icon.png'),
+    title: 'Kahvaltı',
+    selected: true,
+  },
+  {
+    id: '11',
+    image: require('../images/borek-icon.png'),
+    title: 'Börek',
+    selected: true,
   }
 ];
 

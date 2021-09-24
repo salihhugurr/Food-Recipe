@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, FlatList, Image, TouchableOpacity, TextInput, ActivityIndicator} from 'react-native';
 import yemekData from '../yemekData.json';
+import colors from "../assets/colors/colors";
+import Feather from "react-native-vector-icons/Feather";
 
 export default class FilterCategory extends Component {
 
@@ -62,13 +64,20 @@ export default class FilterCategory extends Component {
     return (
       <TouchableOpacity
         onPress={() => this.props.navigation.navigate('Details',{item:item})}
-        style={[styles.itemContainer, {backgroundColor: index % 2 === 1 ? '#fafafa' : ''}]}>
+        style={[styles.itemContainer, {backgroundColor: index % 2 === 1 ? colors.price : colors.primary}]}>
         <Image
           style={styles.avatar}
           source={{uri: item.smallImg}}/>
-        <View style={styles.textContainer}>
+
+        <View style={{flexDirection:"row" ,justifyContent:"space-around"}}>
+          <View style={styles.textContainer}>
           <Text style={styles.name}>{item.title}</Text>
         </View>
+          <View style={styles.itemIcon}>
+            <Feather style={{marginLeft:'5%',marginTop:"5%"}}name="chevron-right" size={28} color={'#000'}/>
+          </View>
+        </View>
+
       </TouchableOpacity>
     )
   };
@@ -98,7 +107,7 @@ export default class FilterCategory extends Component {
             this.searchFilter(text);
           }}
           value={text}
-          placeholder="Search..."
+          placeholder="Yemek Ara..."
           style={styles.searchInput}/>
       </View>
     )
@@ -117,47 +126,93 @@ export default class FilterCategory extends Component {
 
   render() {
     return (
-      <FlatList
-        ListFooterComponent={this.renderFooter}
-        ListHeaderComponent={this.renderHeader()}
-        renderItem={this.renderMealsItem}
-        keyExtractor={item => item.id}
-        data={this.state.meals}
+      <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.goBack()}>
+            <Feather style={{marginLeft:'5%',marginTop:"2%",paddingTop:".3%"}}name="chevron-left" size={28} color={'#000'}/>
+          </TouchableOpacity>
+          <Text style={styles.titleText}>{this.props.navigation.getParam("item")}</Text>
+        </View>
+        <FlatList
+          ListFooterComponent={this.renderFooter}
+          ListHeaderComponent={this.renderHeader()}
+          renderItem={this.renderMealsItem}
+          keyExtractor={item => item.id}
+          data={this.state.meals}
 
-        refreshing={this.state.refreshing}
-        onRefresh={this.onRefresh}
-      />
+          refreshing={this.state.refreshing}
+          onRefresh={this.onRefresh}
+        />
+
+      </View>
+
     );
   }
 }
 
 
 const styles = StyleSheet.create({
+  container:{
+    flex:1,
+  },
   itemContainer: {
     flex: 1,
     flexDirection: 'row',
     paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee'
+    borderBottomColor: '#eee',
+    borderRadius:15,
+    marginTop:"3%",
+    backgroundColor:colors.background,
   },
   avatar: {
     width: 50,
     height: 50,
     borderRadius: 25,
-    marginHorizontal: 10
+    marginHorizontal: 10,
   },
   textContainer: {
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    width:"70%"
   },
   name: {
     fontSize: 16
   },
   searchContainer: {
-    padding: 10
+    padding: 10,
+    backgroundColor:colors.white,
+    borderWidth:1.5,
+    paddingHorizontal:5,
+    borderRadius:20,
+
   },
   searchInput: {
     fontSize: 16,
-    backgroundColor: '#f9f9f9',
-    padding: 10
+    backgroundColor: colors.white,
+    paddingLeft:20,
+    borderWidth:.5,
+    borderColor:colors.price,
+    borderRadius:10,
+    fontFamily:"Montserrat-Bold"
+  },
+  titleText:{
+    fontFamily:"Montserrat-Bold",
+    fontSize:21,
+    paddingHorizontal:"1%",
+    paddingTop:1,
+    textAlign:"center",
+    color:colors.price
+  },
+  titleContainer:{
+    borderBottomWidth:.5,
+    marginBottom:"4%",
+    marginTop:"4%",
+    padding:5,
+    flexDirection:"row"
+  },
+  itemIcon:{
+    justifyContent:"center",
+
   }
 });

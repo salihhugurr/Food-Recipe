@@ -24,23 +24,6 @@ export default class Details extends Component {
 
     let item = this.props.navigation.getParam("item");
     console.log(item.ingredient);
-    const newStr = item.ingredient.replace(/[-[/\]{}()*+?.'\\^$|#]/g, '');
-    console.log(item.ingredient);
-    const sp = newStr.split(",");
-    const newArray = sp.filter((val,id,array) => array.indexOf(val) == id);
-
-
-    const length = newArray.length;
-
-    const myLoop = [];
-    for(let i = 0; i < length-1; i++){
-      myLoop.push(newArray[i])
-    }
-
-
-
-
-
 
 
     return (
@@ -75,16 +58,19 @@ export default class Details extends Component {
             <View style={styles.view}>
 
               <Text style={{fontFamily:"Montserrat-Bold",color:colors.black,paddingTop:"5%"}}>Malzemeler</Text>
-              <View style={{alignItems:"center",marginTop:"5%"}}>
-                {myLoop.map((prop, key) => {
-                  return (
-                    <Text style={{textTransform:"capitalize",fontFamily:"Montserrat-Regular",color:colors.textDark,padding:3}}> {myLoop[key]} </Text>
-                  );
-                })}
-              </View>
+              <ScrollView contentContainerStyle={{alignItems:"center",marginTop:"5%"}}>
+                <Text style={{textTransform:"capitalize",fontFamily:"Montserrat-Semi-Bold",color:colors.textDark,padding:3,fontSize:15}}> {item.ingredient} </Text>
+              </ScrollView>
 
             </View>
-            <View style={styles.view2} />
+            <View style={styles.view2}>
+
+              <Text style={{fontFamily:"Montserrat-Bold",color:colors.black,paddingTop:"5%"}}>Yemek Tarifi</Text>
+              <ScrollView contentContainerStyle={{alignItems:"center",marginTop:"5%"}}>
+                <Text style={{textTransform:"capitalize",fontFamily:"Montserrat-Semi-Bold",color:colors.textDark,padding:1}}> {item.instruction} </Text>
+              </ScrollView>
+
+            </View>
 
           </ScrollView>
         </View>
@@ -114,7 +100,7 @@ const styles = StyleSheet.create({
     marginBottom:"4%",
     marginTop:"4%",
     padding:5,
-    flexDirection:"row"
+    flexDirection:"row",
   },
   ingredientsContainer:{
     flex:1,
@@ -129,7 +115,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal : 30,
     alignItems:"center",
-    borderWidth:4
+    borderWidth:4,
+    borderColor:colors.primary
   },
   view2: {
     backgroundColor: colors.background,
@@ -139,7 +126,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal : 30,
     alignItems:"center",
-    borderWidth:4
+    borderWidth:4,
+    borderColor:colors.secondary
   },
   textContainer:{
     flex:7

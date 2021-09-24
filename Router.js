@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import CategorySearch from "./components/CategorySearch";
 import FilterCategory from "./components/FilterCategory";
 import Details from "./components/Details";
+import MultipleSelect from "./components/MultipleSelect";
 
 
 const HomeNavigator= createStackNavigator({
@@ -21,7 +22,8 @@ const AppNavigator= createStackNavigator({
   Home:Home,
   CategorySearch:CategorySearch,
   FilterCategory:FilterCategory,
-  Details:Details
+  Details:Details,
+  MultipleSelect:MultipleSelect
 
 
 
